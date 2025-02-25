@@ -37,7 +37,7 @@ public class Ventana extends JFrame {
         panel.add(new JLabel()); // una etiqueta invisible q puse para que el boton de iniciar sesion quede debajo mejor alineadp
         panel.add(login);
 
-        //add(panel);
+        add(panel);
         
         
         

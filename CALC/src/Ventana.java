@@ -9,7 +9,6 @@ public class Ventana extends JFrame {
         setSize(600, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-
         
         JPanel panel = new JPanel(new GridLayout(6, 1));
         
