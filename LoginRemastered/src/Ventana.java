@@ -1,70 +1,30 @@
 import javax.swing.*;
 import java.awt.*;
-import javax.swing.ImageIcon;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 
 public class Ventana extends JFrame {
-    private JTextField usuario;
-    private JPasswordField contrasena;
-    private JButton login;
-    
+    CardLayout cardLayout = new CardLayout();
+    JPanel mainPanel = new JPanel(cardLayout);
+
     public Ventana() {
-        setTitle("Iniciar Sesión");
-        setSize(600, 550);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
+        JPanel card1 = new JPanel();
+        card1.add(new JLabel("This is Card 1"));
         
-        JPanel panel0 = new JPanel(new GridLayout(1, 2));
-        
-        JLabel imagen = new JLabel (new ImageIcon("camaron.png"));
-        panel0.add(imagen);
+        JPanel card2 = new JPanel();
+        card2.add(new JLabel("This is Card 2"));
 
-        JPanel panel = new JPanel(new GridLayout(3, 2));
-        
-        panel.add(new JLabel("Usuario:"));
-        usuario = new JTextField();
-        panel.add(usuario);
-        
-        panel.add(new JLabel("Contraseña:"));
-        contrasena = new JPasswordField();
-        panel.add(contrasena);
-        
-        login = new JButton("Iniciar Sesión");
-        panel.add(new JLabel()); // una etiqueta invisible q puse para que el boton de iniciar sesion quede debajo mejor alineadp
-        panel.add(login);
-        
-        JMenuBar barra = new JMenuBar();
-        
-        JMenu menu1 = new JMenu("Archivo");
-        JMenu menu2 = new JMenu("Ayuda");
-        
-        barra.add(menu1);
-        barra.add(menu2);
-        
-        JMenuItem abrir = new JMenuItem("Abrir");
-        JMenuItem nuevo = new JMenuItem("Nuevo");
-        JMenuItem guardar = new JMenuItem("Guardar");
-        JMenuItem cerrar = new JMenuItem("Cerrar");
-        
-        JMenuItem bienv = new JMenuItem("Bienvenido");
-        JMenuItem centro= new JMenuItem("Centro de ayuda");
-        JMenuItem reportar = new JMenuItem("Reportar errores");
-        
-        
-        menu1.add(nuevo);
-        menu1.add(abrir);
-        menu1.add(guardar);
-        menu1.add(cerrar);
-        
-        menu2.add(bienv);
-        menu2.add(centro);
-        menu2.add(reportar);
-        
-        this.setJMenuBar(barra);
+        mainPanel.add(card1, "Card 1");
+        mainPanel.add(card2, "Card 2");
 
-        panel0.add(panel);
-        add(panel0);
-        }
+        JButton nextButton = new JButton("Next");
+        nextButton.addActionListener(e -> cardLayout.next(mainPanel));
+
+        this.add(mainPanel, BorderLayout.CENTER);
+        this.add(nextButton, BorderLayout.SOUTH);
+
+        this.setSize(300, 200);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setVisible(true);
+    }
 
 }
