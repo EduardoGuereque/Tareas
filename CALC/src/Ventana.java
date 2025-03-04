@@ -3,12 +3,22 @@ import java.awt.*;
 
 public class Ventana extends JFrame {
 
+	
     public Ventana() {
-
+    	
+    	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+ 
+        setSize(350, 350);
+        setLocationRelativeTo(null);
+        setVisible(true);
+    	
         setTitle("EPICA CALCULADORA MORTAL DE LA MUERTE");
         setSize(600, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
+        
+        Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("recursos/mono.png"));
+    	setIconImage(icon);
         
         JPanel panel = new JPanel(new GridLayout(6, 1));
         
